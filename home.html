@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleto WebSite</title>
+  <link rel="icon" href="channel_profile.jpg">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #000000, #ffcc00); /* تدرج خلفية أصفر وأسود */
+      color: #fff; /* لون النص أبيض */
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-between; /* توزيع الأزرار بشكل متساوي */
+      align-items: center; /* توسيط عمودي */
+      background-color: rgba(0, 0, 0, 0.8); /* لون خلفية القائمة مع شفافية */
+      padding: 15px 30px; /* حشوة أعلى وأسفل */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل */
+      border-radius: 10px; /* زوايا دائرية */
+      margin: 20px; /* مسافة حول القائمة */
+    }
+
+    .mot {
+      font-size: 36px;
+      color: #ffcc00; /* لون العنوان أصفر */
+      text-align: center;
+      margin: 0; /* إزالة المسافة الافتراضية */
+      font-weight: bold; /* جعل العنوان غامق */
+    }
+
+    .container {
+      max-width: 900px; /* حد عرض الحاوية */
+      margin: 20px auto; /* توسيط الحاوية */
+      padding: 20px; /* إضافة حشوة */
+      background-color: rgba(255, 255, 255, 0.9); /* لون خلفية الحاوية مع شفافية */
+      border-radius: 10px; /* زوايا دائرية */
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* ظل */
+    }
+
+    .centered-text {
+      text-align: center; /* توسيط النص */
+      font-size: 1.25rem; /* حجم الخط */
+      margin-top: 20px; /* مسافة فوق النص */
+      color: #333; /* لون النص */
+    }
+
+    .menu a {
+      color: #ffcc00; /* لون الروابط أصفر */
+      text-decoration: none;
+      margin: 0 15px; /* مسافة بين الأزرار */
+      padding: 10px 15px; /* حشوة داخل الأزرار */
+      border-radius: 5px; /* زوايا دائرية */
+      background-color: #444; /* لون خلفية الأزرار رمادي داكن */
+      transition: background-color 0.3s, transform 0.2s; /* تأثير الانتقال */
+      font-weight: bold; /* جعل النص غامق */
+    }
+
+    .menu a:hover {
+      background-color: #555; /* لون خلفية عند التحويم */
+      transform: translateY(-2px); /* حركة بسيطة عند التحويم */
+    }
+
+    /* أنماط للقائمة المنسدلة */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff; /* لون خلفية القائمة المنسدلة */
+      min-width: 200px; /* عرض القائمة المنسدلة */
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* ظل */
+      z-index: 1;
+      border-radius: 5px; /* زوايا دائرية */
+      margin-top: 5px; /* مسافة فوق القائمة المنسدلة */
+    }
+
+    .dropdown-content a {
+      color: black; /* لون النص في القائمة المنسدلة */
+      padding: 12px 16px; /* حشوة داخل عناصر القائمة المنسدلة */
+      text-decoration: none;
+      display: block; /* جعل العناصر ككتل */
+      transition: background-color 0.3s; /* تأثير الانتقال */
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1; /* لون خلفية عند التحويم */
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block; /* عرض القائمة المنسدلة عند التحويم */
+    }
+
+    h1 a {
+      color: #ffcc00; /* لون رابط Discord */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 a {
+      color: #000000; /* لون رابط YouTube */
+      text-decoration: none;
+    }
+
+    h1 a:hover, h2 a:hover {
+      text-decoration: underline; /* تأثير عند التحويم */
+    }
+
+    footer {
+      text-align: center; /* توسيط النص */
+      padding: 20px; /* حشوة */
+      background-color: rgba(0, 0, 0, 0.8); /* لون خلفية الفوتر مع شفافية */
+      color: #ffcc00; /* لون النص أصفر */
+      position: relative; /* الوضع النسبي */
+      bottom: 0; /* يلتصق بالقاع */
+      width: 100%; /* عرض كامل */
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu">
+    <h6 align="center" class="mot"><b>Bleto WebSite</b></h6>
+    <div id="links" face="cinzel">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="javascript:void(0)">Video Project</a>
+        <div class="dropdown-content">
+          <a href="video1.html">بروجاكت برودكاست ⚡️️</a>
+          <a href="video2.html">Video 2</a>
+          <a href="video3.html">Video 3</a>
+        </div>
+      </div>
+      <a href="https://discord.gg/kvek3R5mJB">Support</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="centered-text">
+      <p>Welcome to the Bleto WebSite. We hope you enjoy using the projects and thank you for visiting us.</p>
+    </div>
+
+    <h5 align="center">By bleto</h5>
+    
+    <!-- رابط Discord -->
+    <h1 align="center">
+      <a href="https://discord.gg/kvek3R5mJB" target="_blank">Discord</a>
+    </h1>
+    
+    <!-- رابط YouTube -->
+    <h2 align="center">
+      <a href="https://www.youtube.com/@Bleto_YT" target="_blank">YouTube</a>
+    </h2>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Bleto. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #141414; /* Change to your desired background color */
+    padding: 0px 0;
+    transition: .3s;
+    opacity: 0;
+    animation: slideBottom 2s ease forwards;
+    animation-delay: .7s;
+  }
+  .mot{
+    font-size: 50px;
+    color: orange;
+    transition: .3s;
+    opacity: 0;
+    animation: slideRight 2s ease forwards;
+    animation-delay: .7s;
+  }
+
+  
+
+  .container {
+    max-width: 800px; /* Limit the width of the container */
+    margin: 20px auto; /* Center the container horizontally */
+    padding: 0 20px; /* Add padding for spacing */
+  }
+  
+  /* News article styles */
+  
+  
+  /* Other styles (same as before) */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @keyframes slideRight{
+    0%{
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes slideTop {
+    0%{
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes slideBottom{
+    0%{
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes slideBotto{
+    0%{
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+ 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Bleto</title>
+    <link rel="icon" href="channel_profile.jpg">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1a1a1a, #ffcc00);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .chat-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 500px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .chat-message span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .input-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container" id="chatContainer">
+        <h2>Chat Room</h2>
+        <div id="messages"></div>
+    </div>
+    <div class="input-container">
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+
+    <script>
+        let userId = Math.floor(Math.random() * 1000); // توليد رقم عشوائي كمستخدم
+
+        // تحميل الرسائل المخزنة من localStorage عند تحميل الصفحة
+        window.onload = function() {
+            loadMessages();
+        };
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+
+            if (message.trim() === '') {
+                alert('Please write a message before sending.');
+                return;
+            }
+
+            const webhookURL = 'https://discord.com/api/webhooks/1298664612807446591/0Tifx7Jo8SR8-NE7sWFL6YBcr2RyOi50hh6-VDd3PjxcVMsb-eCiwyYfa1UWV-f1h5YJ'; // استبدل بـ Webhook الخاص بك
+
+            // إرسال الرسالة إلى Discord Webhook
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: `User ${userId}: ${message}` })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // إضافة الرسالة إلى الواجهة
+                    displayMessage(userId, message);
+                    saveMessage(userId, message); // حفظ الرسالة
+                    document.getElementById('message').value = ''; // مسح الرسالة
+                } else {
+                    alert('Failed to send message. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            });
+        }
+
+        function displayMessage(userId, message) {
+            const messagesDiv = document.getElementById('messages');
+            const newMessage = document.createElement('div');
+            newMessage.className = 'chat-message';
+            newMessage.innerHTML = `<span>User ${userId}:</span> ${message}`;
+            messagesDiv.appendChild(newMessage);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // التمرير إلى الأسفل
+        }
+
+        function saveMessage(userId, message) {
+            // استرجاع الرسائل المخزنة
+            const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+            // إضافة الرسالة الجديدة
+            messages.push({ userId, message });
+            // تخزين الرسائل مرة أخرى
+            localStorage.setItem('chatMessages', JSON.stringify(messages));
+        }
+
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+            messages.forEach(msg => {
+                displayMessage(msg.userId, msg.message);
+            });
+        }
+    </script>
+</body>
+</html>

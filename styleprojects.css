@@ -1,0 +1,107 @@
+/* تنسيق عام للصفحة */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('your-background-image-url.jpg'); /* ضع رابط صورة الخلفية هنا */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* تنسيق زر القائمة */
+.menu {
+    position: absolute;
+    top: 20px;  /* مسافة من أعلى الصفحة */
+    left: 20px; /* مسافة من الجهة اليسرى */
+    z-index: 1000; /* لضمان ظهور الزر فوق المحتوى */
+}
+
+.menu-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px; /* تقليل الحشوة قليلاً */
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* تنسيق عناصر القائمة */
+.menu-items {
+    display: none; /* إخفاء العناصر بشكل افتراضي */
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    top: 50px; /* ظهور القائمة أسفل الزر */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للعمود */
+}
+
+.menu-items a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.menu-items a:hover {
+    background-color: #555;
+}
+
+/* تنسيق محتوى الصفحة */
+.content {
+    text-align: center;
+}
+
+/* تنسيق الرسالة الترحيبية */
+.welcome-message {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+/* تنسيق الأزرار */
+.action-btn, .back-btn {
+    background-color: #007BFF; /* لون زر */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.action-btn:hover, .back-btn:hover {
+    background-color: #0056b3; /* لون عند التحويم */
+}
+/* إضافة تنسيق للقائمة */
+.video-list {
+    list-style-type: none; /* إزالة علامات القوائم */
+    padding: 0;
+}
+
+.video-list li {
+    margin: 10px 0; /* إضافة مسافة بين العناصر */
+}
+
+.video-list a {
+    color: #007BFF; /* لون النص */
+    text-decoration: none;
+}
+
+.video-list a:hover {
+    text-decoration: underline; /* إضافة خط تحت النص عند التحويم */
+}
+.welcome-message {
+    font-size: 16px; /* حجم الخط */
+    color: blue; /* لون النص أزرق */
+    padding: 10px; /* مساحة داخلية */
+    margin: 0; /* إزالة الهامش */
+    text-align: center; /* محاذاة النص إلى الوسط */
+}

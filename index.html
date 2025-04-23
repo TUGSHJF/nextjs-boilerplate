@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleto WebSite</title>
+  <link rel="icon" href="channel_profile.jpg">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #333333, #b88f00);
+      color: #ffcc00; /* لون النص أبيض */
+      position: relative; /* إضافة موضع نسبي لتهيئة الأيقونة */
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8); /* لون خلفية القائمة مع شفافية */
+      padding: 15px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل */
+      border-radius: 10px;
+      margin: 20px;
+    }
+
+    .mot {
+      font-size: 36px;
+      color: #ffcc00;
+      text-align: center;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1); /* خلفية فاتحة */
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .centered-text {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-top: 20px;
+      color: #ffcc00; /* تغيير لون النص إلى الأصفر */
+    }
+
+    /* أنماط زر Hamburger */
+    .hamburger {
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #ffcc00;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 1000; /* جعل الأيقونة فوق كل العناصر */
+      transition: color 0.3s;
+    }
+
+    .hamburger:hover {
+      color: #ffcc00; /* تأثير عند التمرير */
+    }
+
+    /* أنماط الشريط الجانبي */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      border-left: 2px solid #ffcc00; /* إضافة حدود جانبية */
+      z-index: 999; /* جعل الشريط الجانبي فوق العناصر الأخرى */
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 20px; /* تقليل حجم الخط */
+      color: #ffcc00;
+      display: block;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid rgba(255, 204, 0, 0.1); /* حدود بين العناصر */
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255, 204, 0, 0.3); /* تغيير لون الخلفية عند التمرير */
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      font-size: 36px;
+      color: #ffcc00; /* لون الزر */
+    }
+
+    /* القائمة المنسدلة لمشاريع الفيديو */
+    .dropdown-container {
+      display: none;
+      background-color: rgba(255, 204, 0, 0.1);
+      padding-left: 8px;
+      border-left: 2px solid #ffcc00; /* إضافة حدود */
+      margin-bottom: 10px; /* إضافة مسافة أسفل */
+    }
+
+    .dropdown-btn {
+      font-size: 20px; /* تقليل حجم الخط */
+      color: #ffcc00;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-btn:hover {
+      background-color: rgba(255, 204, 0, 0.3);
+    }
+
+    /* محتوى الصفحة الرئيسي */
+    #main {
+      transition: margin-right 0.5s;
+      padding: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ffcc00;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* الأنماط العامة للروابط */
+    a {
+      text-decoration: none;
+      color: #ffcc00; /* لون الروابط */
+    }
+
+    a:hover {
+      text-decoration: underline; /* تأثير التمرير على الروابط */
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu">
+    <h6 align="center" class="mot"><b>Bleto WebSite</b></h6>
+    <!-- زر Hamburger على اليمين -->
+    <button class="hamburger" onclick="openNav()">&#9776;</button>
+  </nav>
+
+  <!-- الشريط الجانبي الرئيسي -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" onclick="navigateToHome()">Home</a> <!-- استخدام JavaScript للتنقل -->
+    <a href="suggestion.html">Suggestion</a>
+    <button class="dropdown-btn" onclick="toggleVideoSidebar()">Video Project ▼</button>
+    <div class="dropdown-container" id="videoProjects">
+      <a href="video1.html">بروجاكت برودكاست ⚡️</a>
+      <a href="video2.html">بروجاكت شوب مطور 🛒</a>
+      <a href="video3.html">بروجاكت تكت 🎟️</a>
+      <a href="video4.html">بروجاكت ميكر 💡</a>
+      <a href="video5.html">بروجاكت بروبوت بريميوم 🤖</a>
+      <a href="video6.html">بروجاكت ذكاء إصطناعي 🧠</a>
+    </div>
+    <a href="https://discord.gg/zndkTxUvsS">Server Support</a>
+  </div>
+
+  <!-- محتوى الصفحة -->
+  <div id="main">
+    <div class="container">
+      <div class="centered-text">
+        <p>Welcome to the Bleto WebSite. We hope you enjoy using the projects and thank you for visiting us.</p>
+      </div>
+      <h5 align="center">By bleto</h5>
+
+      <!-- رابط Discord -->
+      <h1 align="center">
+        <a href="https://discord.gg/kvek3R5mJB" target="_blank">Discord</a>
+      </h1>
+
+      <!-- رابط YouTube -->
+      <h2 align="center">
+        <a href="https://www.youtube.com/@Bleto_YT" target="_blank">YouTube</a>
+      </h2>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Bleto. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginRight = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginRight = "0";
+      closeVideoNav(); // إغلاق الشريط الجانبي لمشاريع الفيديو عند إغلاق الشريط الرئيسي
+    }
+
+    function navigateToHome() {
+      window.location.href = "index.html"; // إعادة توجيه المستخدم إلى index.html
+    }
+
+    function toggleVideoSidebar() {
+      var videoSidebar = document.getElementById("videoProjects");
+      if (videoSidebar.style.display === "block") {
+        videoSidebar.style.display = "none"; // إخفاء القائمة عند الضغط مرة أخرى
+      } else {
+        videoSidebar.style.display = "block"; // عرض القائمة عند الضغط
+      }
+    }
+  </script>
+</body>
+</
